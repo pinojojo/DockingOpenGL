@@ -18,6 +18,7 @@ project "OpenGL-Core"
 		"vendor/stb_image/**.cpp",
 		"vendor/glm/glm/**.hpp",
 		"vendor/glm/glm/**.inl",
+		"vendor/stl_reader/**.h",
 	}
 
 	defines
@@ -33,7 +34,8 @@ project "OpenGL-Core"
 		"%{IncludeDir.Glad}",
 		"%{IncludeDir.ImGui}",
 		"%{IncludeDir.glm}",
-		"%{IncludeDir.stb_image}"
+		"%{IncludeDir.stb_image}",
+		"%{IncludeDir.stl_reader}"
 	}
 
 	links 
