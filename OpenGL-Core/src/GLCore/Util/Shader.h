@@ -13,6 +13,11 @@ namespace GLCore::Utils {
 
 		GLuint GetRendererID() { return m_RendererID; }
 
+		void Use() {
+			glUseProgram(m_RendererID);
+		}
+		
+
 		static Shader* FromGLSLTextFiles(const std::string& vertexShaderPath, const std::string& fragmentShaderPath);
 	private:
 		Shader() = default;

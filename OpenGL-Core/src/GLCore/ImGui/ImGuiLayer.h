@@ -16,14 +16,23 @@ namespace GLCore {
 
 		virtual void OnAttach() override;
 		virtual void OnDetach() override;
-
 		void Begin();
 		void End();
 
 		virtual void ImGuiLayer::OnEvent(Event& event);
+
 		bool ImGuiLayer::OnMouseButtonPressed(MouseButtonPressedEvent& e);
+		bool ImGuiLayer::OnWindowResizePressed(WindowResizeEvent& e);
+
+
+		int win_width_;
+		int win_height_;
+
 	private:
 		float m_Time = 0.0f;
+		
+	
+
 	};
 
 }

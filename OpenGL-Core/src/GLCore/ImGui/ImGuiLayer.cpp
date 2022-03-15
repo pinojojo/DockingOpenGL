@@ -67,6 +67,12 @@ namespace GLCore {
 		Application& app = Application::Get();
 		io.DisplaySize = ImVec2((float)app.GetWindow().GetWidth(), (float)app.GetWindow().GetHeight());
 
+		
+
+		win_width_ = app.GetWindow().GetWidth();
+		win_height_ = app.GetWindow().GetHeight();
+
+
 		// Rendering
 		ImGui::Render();
 		ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
@@ -84,12 +90,20 @@ namespace GLCore {
 	{
 		EventDispatcher dispatcher(event);
 		dispatcher.Dispatch<MouseButtonPressedEvent>(GLCORE_BIND_EVENT_FN(ImGuiLayer::OnMouseButtonPressed));
+		dispatcher.Dispatch<WindowResizeEvent>(GLCORE_BIND_EVENT_FN(ImGuiLayer::OnWindowResizePressed));
+
 	}
 
 	bool ImGuiLayer::OnMouseButtonPressed(MouseButtonPressedEvent& e)
 	{
 		ImGuiIO io = ImGui::GetIO();
 		return io.WantCaptureMouse;
+	}
+	bool ImGuiLayer::OnWindowResizePressed(WindowResizeEvent& e)
+	{
+		/*ImGuiIO io = ImGui::GetIO();
+		return io.WantCaptureMouse;*/
+		return false;
 	}
 
 }

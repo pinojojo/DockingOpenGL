@@ -31,15 +31,19 @@ private:
 	GLuint vao_ = 0;
 	GLuint vbo_ = 0;
 	GLuint fbo_ = 0;
+	GLuint aa_fbo_=0;
 	GLuint tex_ = 0;
+	int fbo_width_ = 1000;
+	int fbo_height_ = 1000;
+	int viewer_panel_width_ = 1000;
+	int viewer_panel_height_ = 1000;
+	
 	GLCore::Utils::Shader* shader_;
-	GLCore::Utils::PerspectiveCameraController camera_controller_;
-	
-	int viewer_width_ = 1024;
-	int viewer_height_ = 1024;
-	int new_viewer_width_ = 1024;
-	int new_viewer_height_ = 1024;
-	
-	
+
+	GLCore::Utils::PerspectiveCamera camera_;
+	glm::vec3 camera_position_ = glm::vec3(5.f);
+	float fovy_=45;
+	glm::vec3 front_ = glm::vec3(1, 0, 0);
+
 
 };

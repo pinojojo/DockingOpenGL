@@ -14,7 +14,7 @@ namespace GLCore::Utils {
 	class PerspectiveCameraController
 	{
 	public:
-
+		PerspectiveCameraController();
 		PerspectiveCameraController(float aspect_ratio);
 
 

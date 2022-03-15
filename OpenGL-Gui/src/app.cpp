@@ -1,6 +1,6 @@
 #include "GLCore.h"
 #include "ContainerLayer.h"
-#include "TestLayer.h"
+
 #include "ViewerLayerer.h"
 using namespace GLCore;
 
@@ -11,7 +11,7 @@ public:
 		:Application("new")
 	{
 		PushLayer(new ContainerLayer());
-		//PushLayer(new ExampleLayer());
+		
 		PushLayer(new ViewerLayerer());
 	}
 };

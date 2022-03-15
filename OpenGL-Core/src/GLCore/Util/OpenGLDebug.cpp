@@ -51,7 +51,16 @@ namespace GLCore::Utils {
 		glGetTexLevelParameteriv(GL_TEXTURE_2D, miplevel, GL_TEXTURE_HEIGHT, &height);
 
 		std::vector<GLubyte> pixels(channels * width * height);
-		glGetTextureImage(tex_id, 0, GL_RED, GL_UNSIGNED_BYTE, height * width * channels, pixels.data());//specific channel
+		switch (channels)
+		{
+		case 1:
+			glGetTextureImage(tex_id, 0, GL_RED, GL_UNSIGNED_BYTE, height * width * channels, pixels.data());//specific channel
+			break;
+		case 4:
+			glGetTextureImage(tex_id, 0, GL_RGBA, GL_UNSIGNED_BYTE, height * width * channels, pixels.data());//specific channel
+			break;
+		}
+
 
 		// vertical flipping
 		for (int line = 0; line != height / 2; ++line) {
